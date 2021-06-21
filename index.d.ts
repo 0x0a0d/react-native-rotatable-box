@@ -3,6 +3,7 @@ import { PinchGestureHandlerProps } from 'react-native-gesture-handler/lib/types
 import { ViewProps } from 'react-native'
 
 type ReactNativeRotatableBoxRef = {
+  getRotate(): number
 }
 
 export type ReactNativeRotatableBoxBaseProps = {

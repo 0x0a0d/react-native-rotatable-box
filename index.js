@@ -15,7 +15,9 @@ export const ReactNativeRotatableBox = forwardRef((props, ref) => {
     initialValue = 0
   } = props
 
-  useImperativeHandle(ref, () => ({}))
+  useImperativeHandle(ref, () => ({
+    getRotate: () => lastRotate.current
+  }))
 
   const refGesture = useRef()
   const refViewContainer = useRef()
@@ -38,7 +40,7 @@ export const ReactNativeRotatableBox = forwardRef((props, ref) => {
       ref={refGesture}
       simultaneousHandlers={simultaneousHandlers}
       onGestureEvent={Animated.event(
-        [{ nativeEvent: { rotation: this.rotate }}],
+        [{ nativeEvent: { rotation: rotate }}],
         { useNativeDriver: useNativeDriver }
       )}
       onHandlerStateChange={event => {
